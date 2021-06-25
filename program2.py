@@ -100,8 +100,8 @@ def main():
         #Beautifulsoupを利用して、htmlの解析を行う
         html =req.urlopen(url)
         soup = BeautifulSoup(html,'html.parser')
-        name_list = soup.find_all('h3', attrs={'class': "cassetteRecruit__name"})
-        table_list = soup.find_all('div', attrs={'class': "cassetteRecruit__main"})
+        name_list = soup.select("h3.cassetteRecruit__name")
+        table_list = soup.select("div.cassetteRecruit__main")
         
         # 1ページ分繰り返し
         for name, table in zip(name_list, table_list):   
